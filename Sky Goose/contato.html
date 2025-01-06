@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - GooseWings</title>
+    <link rel="stylesheet" href="style.css"> <!-- Estilo gerais do site-->
+    <link rel="stylesheet" href="Contato.css">
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <img src="imagens/Logo.png" alt="Logo GooseWings" class="logo"> <!-- Logo à esquerda -->
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="servicos.html">Serviços</a>
+                <a href="reservas.html">Reservas</a>
+                <a href="contato.html">Contato</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="contact-container">
+            <div class="form-section">
+                <h2>Entre em Contato Conosco</h2>
+                <p>Para mais informações sobre os nossos serviços ou para reservar o seu jato, entre em contato!</p>
+
+                <form action="#" method="post">
+                    <label for="nome">Nome <span>*</span></label>
+                    <div class="name-fields">
+                        <input type="text" id="first-name" name="first-name" placeholder="Primeiro" required>
+                        <input type="text" id="last-name" name="last-name" placeholder="Último" required>
+                    </div>
+
+                    <label for="email">Email <span>*</span></label>
+                    <input type="email" id="email" name="email" placeholder="exemplo@dominio.com" required>
+
+                    <label for="mensagem">Mensagem <span>*</span></label>
+                    <textarea id="mensagem" name="mensagem" rows="4" required></textarea>
+
+                    <button type="submit">Enviar</button>
+                </form>
+            </div>
+
+            <div class="info-section">
+                <h3>Visite-nos</h3>
+                <p>Lisboa</p>
+                <h3>Entre em contato</h3>
+                <p>geral@goosewings.com</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 GooseWings. Todos os direitos reservados.</p>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="servicos.html">Serviços</a>
+                <a href="reservas.html">Reservas</a>
+                <a href="contato.html">Contato</a>
+                <a href="login.html" class="login-button">Login</a> <!-- Link para a página de login -->
+                <a href="politica.html">Política de Privacidade</a>
+            </nav>
+        </div>
+    </footer>
+</body>
+</html>
+

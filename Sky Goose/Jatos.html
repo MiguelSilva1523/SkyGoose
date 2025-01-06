@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serviços - GooseWings</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        // Função para buscar dados dos jatos da API e exibir no HTML
+        async function carregarJatos() {
+            try {
+                const response = await fetch('http://localhost:5000/api/DataController/jatos'); // Endpoint da API
+
+                if (!response.ok) {
+                    throw new Error('Erro ao carregar os dados dos jatos.');
+                }
+
+                const jatos = await response.json(); // Converte o resultado para JSON
+
+                const jatosContainer = document.querySelector('.jatos');
+                jatosContainer.innerHTML = ''; // Limpa o conteúdo anterior
+
+                jatos.forEach(jato => {
+                    const card = document.createElement('div');
+                    card.className = 'service-card';
+                    card.innerHTML = `
+                        <h4>${jato.Model}</h4>
+                        <p>Capacidade: ${jato.Capacity} passageiros</p>
+                        <p>Preço por Hora: €${jato.PricePerHour.toFixed(2)}</p>
+                    `;
+                    jatosContainer.appendChild(card);
+                });
+
+            } catch (error) {
+                console.error('Erro:', error);
+                alert('Não foi possível carregar os dados dos jatos. Tente novamente mais tarde.');
+            }
+        }
+
+        // Chama a função quando a página é carregada
+        window.onload = carregarJatos;
+    </script>
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <img src="imagens/Logo.png" alt="Logo GooseWings" class="logo"> <!-- Logo à esquerda -->
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="Jatos.html">Jatos</a>
+                <a href="contato.html">Contato</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="banner">
+        <div class="banner-content">
+            <h2>Nossos Serviços Exclusivos</h2>
+            <p>Explore os serviços premium que a GooseWings oferece para tornar cada viagem uma experiência única.</p>
+        </div>
+    </section>
+
+    <main class="container">
+        <section class="intro">
+            <h3>Serviços Personalizados para Atender Todas as Necessidades</h3>
+            <p>Do início ao fim, nossos serviços são adaptados para garantir uma experiência de voo única, feita para aqueles que exigem o melhor.</p>
+        </section>
+
+        <section class="jatos">
+            <!-- Os jatos serão carregados aqui dinamicamente -->
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 GooseWings. Todos os direitos reservados.</p>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="Jatos.html">Jatos</a>
+                <a href="contato.html">Contato</a>
+                <a href="politica.html">Política de Privacidade</a>
+            </nav>
+        </div>
+    </footer>
+</body>
+</html>
